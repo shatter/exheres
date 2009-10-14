@@ -1,0 +1,49 @@
+# Copyright 2009 Daniel S <shatter@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+SCM_REPOSITORY="git://code.stapelberg.de/${PN}"
+
+require scm-git
+
+SUMMARY="A better tiling and dynamic window manager"
+HOMEPAGE="http://${PN}.zekjur.net/"
+
+PLATFORMS="~amd64 ~x86"
+MYOPTIONS="manpage [[ description = [ Generate manpage with asciidoc ] ]]"
+
+DEPENDENCIES="
+	build:
+	    x11-proto/xcb-proto
+	    manpage? (
+		app-doc/asciidoc
+		app-text/docbook-xml-dtd
+		app-text/xmlto
+	    )
+
+	build+run:
+		dev-libs/libev
+		x11-libs/libX11
+		x11-libs/libxcb
+		x11-utils/xcb-util
+"
+
+src_prepare () {
+	sed -i \
+		-e "s:/usr/local/include:/usr/include:" \
+		-e "s:/usr/local/lib:/usr/lib:" \
+		common.mk || die "Failed to set the prefix correctly"
+}
+
+src_compile() {
+	emake
+	if option manpage; then
+	    emake -C man
+	fi
+}
+
+src_install() {
+	emake -j1 DESTDIR="${IMAGE}" install
+	if option manpage; then
+	    doman man/i3.1
+	fi
+}

@@ -1,0 +1,24 @@
+# Copyright 2009 Daniel S <shatter@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+# Based in part on 'gnaural-1.0.20080808.ebuild' from Gentoo, which is:
+#     Copyright 1999-2008 Gentoo Foundation
+
+# I should probably test to see if this works...
+
+SUMMARY="Binaural-beat audio generator"
+HOMEPAGE="http://gnaural.sourceforge.net"
+DOWNLOADS="mirror://sourceforge/gnaural/${PNV}.tar.gz"
+
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
+
+DEPENDENCIES="
+	build+run:
+		gnome-base/libglade
+		media-libs/libsndfile
+		media-libs/portaudio-19
+
+	build:
+		dev-util/intltool
+		dev-util/pkgconfig
+"
