@@ -10,6 +10,7 @@ HOMEPAGE="http://${PN}.zekjur.net/"
 
 PLATFORMS="~amd64 ~x86"
 MYOPTIONS="manpage [[ description = [ Generate manpage with asciidoc ] ]]"
+SLOT="0"
 
 DEPENDENCIES="
 	build:
