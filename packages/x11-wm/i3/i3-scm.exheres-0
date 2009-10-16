@@ -10,17 +10,15 @@ SUMMARY="A better tiling and dynamic window manager"
 HOMEPAGE="http://${PN}.zekjur.net/"
 
 PLATFORMS="~amd64 ~x86"
-MYOPTIONS="manpage [[ description = [ Generate manpage with asciidoc ] ]]"
+MYOPTIONS=""
 SLOT="0"
 
 DEPENDENCIES="
 	build:
+	    app-doc/asciidoc
+	    app-text/docbook-xml-dtd
+	    app-text/xmlto
 	    x11-proto/xcb-proto
-	    manpage? (
-		app-doc/asciidoc
-		app-text/docbook-xml-dtd
-		app-text/xmlto
-	    )
 
 	build+run:
 		dev-libs/libev
@@ -38,14 +36,10 @@ src_prepare () {
 
 src_compile() {
 	emake
-	if option manpage; then
-	    emake -C man
-	fi
+	emake -C man
 }
 
 src_install() {
 	emake -j1 DESTDIR="${IMAGE}" install
-	if option manpage; then
-	    doman man/i3.1
-	fi
+	doman man/i3.1
 }
