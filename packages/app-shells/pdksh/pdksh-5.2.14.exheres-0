@@ -14,5 +14,5 @@ DEFAULT_SRC_CONFIGURE_PARAMS=(
 
 default_src_prepare()
 {
-    expatch $FILES/pdksh-sort-fix.patch
+    expatch "$FILES/pdksh-sort-fix.patch"
 }
