@@ -1,0 +1,9 @@
+# Copyright 2009 Daniel S <shatter@gmail.com>
+# Distributed under the terms of the GNU General Public License v2
+
+SUMMARY="Public Domain version of AT&T's korn shell."
+HOMEPAGE="http://www.cs.mun.ca/~michael/pdksh/"
+DOWNLOADS="http://www.cs.mun.ca/~michael/pdksh/${PNV}"
+
+SLOT="0"
+PLATFORMS="~amd64 ~x86"
