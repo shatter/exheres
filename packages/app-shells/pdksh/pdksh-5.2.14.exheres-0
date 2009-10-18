@@ -3,7 +3,7 @@
 
 SUMMARY="Public domain version of AT&T's korn shell"
 HOMEPAGE="http://www.cs.mun.ca/~michael/pdksh/"
-DOWNLOADS="ftp://ftp.cs.mun.ca/pub/${PN}/${PNV}tar.gz"
+DOWNLOADS="ftp://ftp.cs.mun.ca/pub/${PN}/${PNV}.tar.gz"
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
 
