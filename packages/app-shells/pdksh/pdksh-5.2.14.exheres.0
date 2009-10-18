@@ -7,3 +7,8 @@ DOWNLOADS="http://www.cs.mun.ca/~michael/pdksh/files/${PNV}.tar.gz"
 
 SLOT="0"
 PLATFORMS="~amd64 ~x86"
+
+DEFAULT_SRC_CONFIGURE_PARAMS=(
+    --bindir=/bin
+)
+
