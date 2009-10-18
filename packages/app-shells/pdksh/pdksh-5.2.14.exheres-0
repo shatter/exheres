@@ -10,7 +10,7 @@ PLATFORMS="~amd64 ~x86"
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --bindir=/bin
     --hates=docdir
-    --mandir=/usr/share/man
+    --mandir=/usr/share
 )
 
 default_src_prepare() {
