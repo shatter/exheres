@@ -17,5 +17,6 @@ src_prepare() {
 
     sed -i \
 	-e "s/man\/man/share\/man\/man/" \
+	-e "s/installdirs all/all/" \
 	Makefile.in || die "Failed to correctly set the man path"
 }
