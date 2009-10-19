@@ -10,9 +10,12 @@ PLATFORMS="~amd64 ~x86"
 DEFAULT_SRC_CONFIGURE_PARAMS=(
     --bindir=/bin
     --hates=docdir
-    --mandir=/usr/share
 )
 
-default_src_prepare() {
+src_prepare() {
     expatch "$FILES/pdksh-sort-fix.patch"
+
+    sed -i \
+	-e "s:mandir = $(prefix)/man/man$(manext):mandir = $(prefix)/share/man/man$(manext):" \
+	Makefile.in || die "Failed to correctly set the man path"
 }
