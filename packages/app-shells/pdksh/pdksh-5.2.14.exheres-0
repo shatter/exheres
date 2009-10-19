@@ -16,6 +16,6 @@ src_prepare() {
     expatch "$FILES/pdksh-sort-fix.patch"
 
     sed -i \
-	-e "s/mandir = \$\(prefix\)\/man\/man\$\(manext\)/mandir = \$\(prefix\)\/share\/man\/man\$\(manext\)/" \
+	-e "s/man\/man/share\/man\/man/" \
 	Makefile.in || die "Failed to correctly set the man path"
 }
